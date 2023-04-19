@@ -24,9 +24,11 @@
     "morgan": "^1.10.0",
     "mssql": "^9.1.1",
     "mysql": "^2.18.1",
+    "mysql2": "^3.2.3",
     "nodemailer": "^6.9.1",
     "package.json": "^2.0.1",
     "slugify": "^1.6.5",
+    "util": "^0.12.5",
     "validator": "^13.9.0",
     "xss-clean": "^0.1.1"
   },
