@@ -29,8 +29,8 @@ router
 
 //9各大类案件场所分布
 router
-  .route('/GenderDistributionOfReportedIndividuals')
-  .get(apiController.GenderDistributionOfReportedIndividuals7);
+  .route('/DistributionOfVenuesForMajorTypesOfCases')
+  .get(apiController.DistributionOfVenuesForMajorTypesOfCases7);
 
 //20各反馈警情大类、小类处理结果
 router.route('/MajorAndMinorCategor').get(apiController.MajorAndMinorCategor15);

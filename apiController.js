@@ -85,7 +85,7 @@ exports.TrendOfDailyAlarmCases6 = async (req, res, next) => {
     res.status(500).send('Server Error');
   }
 };
-exports.GenderDistributionOfReportedIndividuals7 = async (req, res, next) => {
+exports.DistributionOfVenuesForMajorTypesOfCases7 = async (req, res, next) => {
   try {
     const query = promisify(pool.query).bind(pool);
     const result = await query('SELECT *  FROM  `9各大类案件场所分布`');
