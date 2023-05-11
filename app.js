@@ -24,5 +24,10 @@ app.use(express.json({ limit: '10kb' })); //middleware 中间件
 //Data sanitization against XSS
 app.use(xss());
 //to prevent parameter pollution
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  next();
+});
 app.use('/api/v1', apiRouters);
+
 module.exports = app;
