@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const xss = require('xss-clean');
+const path = require('path');
 const apiRouters = require('./apiRouters');
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(morgan('dev'));
 app.use(helmet());
 //Limit requests from same API
 const limiter = rateLimit({
-  max: 100,
+  max: 1000,
   windowMs: 60 * 60 * 1000,
   message: 'Too many request from this IP,please try again in an hour!',
 });
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
   next();
 });
+app.use(express.static(path.join(__dirname, 'data')));
 app.use('/api/v1', apiRouters);
 
 module.exports = app;
