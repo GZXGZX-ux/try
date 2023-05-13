@@ -19,7 +19,6 @@ pool.getConnection((err, connection) => {
     console.error(`error connecting: ${err.stack}`);
     return;
   }
-
   console.log(`connected as id ${connection.threadId}`);
   connection.release();
 });
