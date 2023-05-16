@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 const app = require('./app');
 
-//连接数据库
 dotenv.config({
   path: './config.env',
 });

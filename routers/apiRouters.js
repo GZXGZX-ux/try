@@ -1,5 +1,5 @@
 const express = require('express');
-const apiController = require('./apiController');
+const apiController = require('../controller/apiController');
 
 const router = express.Router(); //make it be a middleware
 //报案人年龄分布

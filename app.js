@@ -4,7 +4,8 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const path = require('path');
-const apiRouters = require('./apiRouters');
+const apiRouters = require('./routers/apiRouters');
+const graphyRouters = require('./routers/graphyRouters');
 
 const app = express();
 //Set security HTTP headers
@@ -31,5 +32,6 @@ app.use((req, res, next) => {
 });
 app.use(express.static(path.join(__dirname, 'data')));
 app.use('/api/v1', apiRouters);
+app.use('/api/v2', graphyRouters);
 
 module.exports = app;
