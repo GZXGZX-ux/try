@@ -29,3 +29,4 @@ exports.AlarmTypeAndFinalFeedbackTypeFlowDirection14 =
   controllerfactory.getone('19报警类型与最终反馈类型流向');
 exports.MajorAndMinorCategor15 =
   controllerfactory.getone('20各反馈警情大类、小类处理结果');
+exports.mapLatitudeAndLongitude = controllerfactory.getone('30经纬度');

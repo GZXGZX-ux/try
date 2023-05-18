@@ -75,4 +75,9 @@ router
   .route('/TrendOfDailyAlarmCases')
   .get(apiController.TrendOfDailyAlarmCases6);
 
+//经纬度信息
+router
+  .route('/mapLatitudeAndLongitude')
+  .get(apiController.mapLatitudeAndLongitude);
+
 module.exports = router;
