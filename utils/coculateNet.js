@@ -1,5 +1,5 @@
 //将所有的node以相同夫阶段进行分类进行分类
-exports.classifyNodes = function (eageAll) {
+exports.classifyNodes = function (eageAll, nodeAll1) {
   const calssifyNodesAll = [];
   while (eageAll.length > 0) {
     const m = eageAll[0].source;
@@ -13,12 +13,13 @@ exports.classifyNodes = function (eageAll) {
     }
     calssifyNodesAll.push(n);
   }
-  calssifyNodesAll.push(['1']);
+  calssifyNodesAll.push(`'${[nodeAll1[0].id]}'`);
   return calssifyNodesAll;
 };
 //根据分类以及每组的深度以及相应的value确定node节点的大小以及类别
 // eslint-disable-next-line no-shadow
 exports.cocutypeSize = function (nodeAll, classifyNodes, nodetype) {
+  console.log(classifyNodes);
   const All = [];
   let cocuJihe = [];
   const cocu = function (cocuJihe1) {
@@ -28,23 +29,26 @@ exports.cocutypeSize = function (nodeAll, classifyNodes, nodetype) {
     // 根据范围计算每个节点的 symbolSize 值
     cocuJihe1.forEach((node) => {
       node.symbolSize = minValue + (maxValue - minValue) * 2 ** node.value;
-      if (maxValue === 3) {
+      if (maxValue === 3 || minValue === 3) {
         node.symbolSize = 100;
+        console.log(1);
       } else if (maxValue === 2) {
         node.symbolSize = 87;
       } else {
         node.symbolSize = node.symbolSize * 60 + 20;
+        if (node.symbolSize > 87) {
+          node.symbolSize = 87;
+        }
       }
       node.category = category;
     });
-
     return cocuJihe1;
   };
 
   classifyNodes.forEach((s) => {
     cocuJihe = [];
     nodeAll.forEach((n) => {
-      if (s.includes(n.id)) {
+      if (s.includes(n.id.toString())) {
         cocuJihe.push(n);
       }
     });
