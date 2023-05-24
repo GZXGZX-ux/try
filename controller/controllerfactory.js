@@ -43,12 +43,11 @@ exports.getlearngraphy = () => async (req, res, next) => {
       22: '萧山靖江派出所',
     }; //1 对应的表是什么表
     const sql = a[req.params.id];
-    console.log(sql);
     const query = promisify(pool.query).bind(pool);
     // const eage = await query(`SELECT *  FROM  edge`);
     // const node = await query(`SELECT *  FROM  node`);
     const eage = await query(
-      `SELECT *  FROM  edges where edges.受警单位='${sql}'`
+      `SELECT *  FROM  edgs where edgs.受警单位名称='${sql}'`
     );
     const node = await query(
       `SELECT *  FROM  nodes where nodes.受警单位名称='${sql}'`
@@ -57,16 +56,27 @@ exports.getlearngraphy = () => async (req, res, next) => {
     node.map((nodethis) => {
       delete nodethis['受警单位名称'];
       delete nodethis.bh;
+      delete nodethis.id;
+      delete nodethis.gz;
+      nodethis.id = nodethis['#'];
+      nodethis.label = nodethis['值'];
+      nodethis.value = nodethis['占比'];
+      delete nodethis['#'];
+      delete nodethis['值'];
+      delete nodethis['占比'];
       return nodethis;
     });
     // eslint-disable-next-line no-const-assign
-    eage.map((eagethis) => {
-      delete eagethis['受警单位'];
-      return eagethis;
-    });
+
     const node1 = Net.classifyNodes(eage, node); //相同父节点分类的结果
     const nodetype = Net.cocugrouptype(eage, node1); //每组按照深度分类的结果
     Net.cocutypeSize(node, node1, nodetype);
+    eage.map((eagethis) => {
+      delete eagethis['受警单位名称'];
+      eagethis.source = eagethis.source.toString();
+      eagethis.target = eagethis.target.toString();
+      return eagethis;
+    });
     res.status(200).json({
       status: 'success',
       results: node.length + eage.length,
