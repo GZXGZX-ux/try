@@ -41,6 +41,7 @@ exports.getlearngraphy = () => async (req, res, next) => {
       20: '萧山进化派出所',
       21: '萧山闻堰派出所',
       22: '萧山靖江派出所',
+      23: '钱江世纪城派出所',
     }; //1 对应的表是什么表
     const sql = a[req.params.id];
     const query = promisify(pool.query).bind(pool);

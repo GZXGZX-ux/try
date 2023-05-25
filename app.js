@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(helmet());
 //Limit requests from same API
 const limiter = rateLimit({
-  max: 1000,
+  max: 10000,
   windowMs: 60 * 60 * 1000,
   message: 'Too many request from this IP,please try again in an hour!',
 });
@@ -29,10 +29,10 @@ app.use(xss());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5583');
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5584');
   next();
 });
 app.use(express.static(path.join(__dirname, 'data')));
 app.use('/api/v1', apiRouters);
 app.use('/api/v2', graphyRouters);
-
 module.exports = app;
