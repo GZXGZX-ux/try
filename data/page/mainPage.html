@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        position: relative;
+      }
+      #container9,
+      #container11 {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        transition: opacity 0.5s ease;
+      }
+      #container12 {
+        width: 600px;
+        height: 600px;
+        position: absolute;
+        bottom: 10px; /* 距离底部的位置 */
+        right: 1000px; /* 距离右侧的位置 */
+        z-index: 1; /* 设置层叠顺序 */
+        transition: opacity 0.5s ease;
+      }
+    </style>
+    <script defer src="./echarts.js" type="module"></script>
+    <script defer src="./network/index2.js" type="module"></script>
+    <script defer src="./杭州地图/hangzhoumap.js" type="module"></script>
+  </head>
+  <body style="height: 100%; margin: 0">
+    <div id="container9"></div>
+    <div id="container11"></div>
+    <div id="container12"></div>
+  </body>
+</html>
