@@ -30,3 +30,6 @@ exports.AlarmTypeAndFinalFeedbackTypeFlowDirection14 =
 exports.MajorAndMinorCategor15 =
   controllerfactory.getone('20各反馈警情大类、小类处理结果');
 exports.mapLatitudeAndLongitude = controllerfactory.getone('30经纬度');
+exports.theJobOfvictim = controllerfactory.getone('31受害人职业');
+exports.BreakdownOfFraudCaseCategories =
+  controllerfactory.getone('32诈骗案件类别细分');

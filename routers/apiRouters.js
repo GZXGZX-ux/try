@@ -79,5 +79,10 @@ router
 router
   .route('/mapLatitudeAndLongitude')
   .get(apiController.mapLatitudeAndLongitude);
-
+//受害人职业
+router.route('/theJobOfvictim').get(apiController.theJobOfvictim);
+//诈骗案件细分
+router
+  .route('/BreakdownOfFraudCaseCategories')
+  .get(apiController.BreakdownOfFraudCaseCategories);
 module.exports = router;
