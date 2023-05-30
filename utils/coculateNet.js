@@ -40,6 +40,9 @@ exports.cocutypeSize = function (nodeAll, classifyNodes, nodetype) {
       }
       node.category = category;
     });
+    cocuJihe1.forEach((node) => {
+      node.symbolSize /= 2;
+    });
     return cocuJihe1;
   };
 
