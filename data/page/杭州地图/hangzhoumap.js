@@ -72,23 +72,28 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
       });
       const optionOne = {
         title: {
-          text: "XiaoShan",
+          text: "萧山区诈骗案件数量分布图",
+          textStyle: {
+            color: "white", // 设置标题颜色
+          },
+          left: "center", // 标题水平居中
+          bottom: 0, // 标题距离底部的位置
         },
         tooltip: {
           trigger: "item",
           formatter: "{b}<br/>{c} (p / km2)",
         },
-        toolbox: {
-          show: true,
-          orient: "vertical",
-          left: "right",
-          top: "center",
-          feature: {
-            dataView: { readOnly: false },
-            restore: {},
-            saveAsImage: {},
-          },
-        },
+        // toolbox: {
+        //   show: true,
+        //   orient: "vertical",
+        //   left: "right",
+        //   top: "center",
+        //   feature: {
+        //     dataView: { readOnly: false },
+        //     restore: {},
+        //     saveAsImage: {},
+        //   },
+        // },
         visualMap: {
           min: 0,
           max: 50,
@@ -96,14 +101,14 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
           realtime: false,
           calculable: true,
           inRange: {
-            color: ["lightskyblue", "yellow", "orangered"],
+            color: ["lightskyblue", "yellow", "#f05654"],
           },
         },
         series: [
           {
             id: "population",
             type: "map",
-            roam: true,
+            // roam: true,
             map: "HK",
             animationDurationUpdate: 1000,
             universalTransition: true,
@@ -111,7 +116,13 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
             label: {
               show: true,
             },
+            itemStyle: {
+              // emphasis: {
+              //   areaColor: "", // 设置为红色
+              // },
+            },
           },
+
           // {
           //   name: "heatmap",
           //   type: "heatmap",
@@ -136,6 +147,9 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
           type: "category",
           axisLabel: {
             rotate: 30,
+            textStyle: {
+              color: "white",
+            },
           },
           data: data.map(function (item) {
             return item.name;
@@ -143,6 +157,7 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
         },
         animationDurationUpdate: 1000,
         series: {
+          color: "rgb(19,131,194)",
           type: "bar",
           id: "population",
           data: data2,
@@ -164,7 +179,6 @@ export const createTheimage = function (data1, container, type = 1, paramName) {
           console.log(type);
           // 获取点击的区域名称
           if (type !== 1) {
-            console.log(123);
             const data3 = deepCopy(data);
             console.log(params.name);
             data3.forEach((a) => {

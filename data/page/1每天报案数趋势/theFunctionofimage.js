@@ -16,6 +16,9 @@ const createTheimage = function (data, container) {
     title: {
       left: "center",
       text: "各天报案数趋势",
+      textStyle: {
+        color: "white", // 设置标题颜色
+      },
     },
     toolbox: {
       feature: {

@@ -18,18 +18,15 @@ const createTheimage = function (data, container) {
   option = {
     title: {
       text: "各时段报案数量",
+      textStyle: {
+        color: "white", // 设置标题颜色
+      },
     },
     legend: {
       top: "bottom",
     },
     toolbox: {
       show: true,
-      feature: {
-        mark: { show: true },
-        dataView: { show: true, readOnly: false },
-        restore: { show: true },
-        saveAsImage: { show: true },
-      },
     },
     series: [
       {

@@ -17,18 +17,21 @@ const createTheimage = function (data, container) {
       },
     },
     title: {
-      left: "center",
-      text: "Large Area Chart",
-    },
-    toolbox: {
-      feature: {
-        dataZoom: {
-          yAxisIndex: "none",
-        },
-        restore: {},
-        saveAsImage: {},
+      left: "left",
+      text: "各天报案数趋势",
+      textStyle: {
+        color: "white", // 设置标题颜色
       },
     },
+    // toolbox: {
+    //   feature: {
+    //     dataZoom: {
+    //       yAxisIndex: "none",
+    //     },
+    //     restore: {},
+    //     saveAsImage: {},
+    //   },
+    // },
     xAxis: {
       type: "category",
       boundaryGap: false,

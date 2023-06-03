@@ -15,6 +15,9 @@ const createTheimage = function (data, container) {
   var option = {
     title: {
       text: "各派出所案件数量",
+      textStyle: {
+        color: "white", // 设置标题颜色
+      },
     },
     tooltip: {},
     xAxis: {

@@ -33,6 +33,9 @@ const createTheimage = function (data, container) {
   var option = {
     title: {
       text: "桑基图",
+      textStyle: {
+        color: "white", // 设置标题颜色
+      },
     },
     tooltip: {},
     series: [

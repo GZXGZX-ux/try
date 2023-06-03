@@ -33,17 +33,7 @@ export const createTheimage = function (data, container) {
   });
   // 定义图表配置项
   const option = {
-    color: [
-      "#5470c6",
-      "#91cc75",
-      "#fac858",
-      "#ee6666",
-      "#73c0de",
-      "#3ba272",
-      "#fc8452",
-      "#9a60b4",
-      "#ea7ccc",
-    ],
+    color: ["rgb(32, 149, 191)", "rgb(125, 162, 206)", "rgb(164, 203,236)"],
     series: [
       {
         edgeSymbol: ["1", "2", "3"],
@@ -53,10 +43,11 @@ export const createTheimage = function (data, container) {
         links: links,
         // roam: true,
         label: {
+          color: "white",
           show: true,
         },
         force: {
-          repulsion: 500,
+          repulsion: 125,
         },
         draggable: true, // 设置节点可拖拽
         categories: categories,
@@ -99,6 +90,9 @@ export const createTheimage = function (data, container) {
               textStyle: {
                 fontSize: 18, // 标题字体大小
                 fontWeight: "bold", // 标题字体粗细
+              },
+              textStyle: {
+                color: "white", // 设置标题颜色
               },
             },
             tooltip: {
@@ -157,7 +151,7 @@ export const createTheimage = function (data, container) {
               const [name, value] = element.split(" ");
               outputArray.push({ name, value: parseInt(value) });
             }
-            console.log(outputArray);
+            // console.log(outputArray);
             const option2 = optionControl(outputArray, params.data.name);
             createTheimage2(option2, "container12");
           }

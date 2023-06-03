@@ -2,77 +2,123 @@
 <html lang="zh-CN" style="height: 100%">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      #container10 {
-        width: 700px;
+      p{
+        font-size: 50px;
+        font-family: 华文楷体;
+        color: white;
+        position: absolute;
+        top: -50px;
+        left: 710px;
+      }
+      #container8 {
+        width: 500px;
         height: 300px;
         position: absolute;
         top: 0;
-        left: 0;
-      }
-      #container8 {
-        width: 300px;
-        height: 300px;
-        position: absolute;
-        top: 350px;
         left: 0;
       }
       #container7 {
-        width: 300px;
+        width: 500px;
         height: 300px;
         position: absolute;
-        top: 700px;
+        top: 320px;
         left: 0;
       }
-      #container6 {
-        width: 380px;
-        height: 600px;
-        position: absolute;
-        top: 350px;
-        left: 320px;
-      }
-      #container1 {
-        width: 380px;
-        height: 450px;
-        position: absolute;
-        top: 0;
-        left: 720px;
-      }
-      #container2 {
-        width: 350px;
-        height: 450px;
-        position: absolute;
-        top: 500px;
-        left: 720px;
-      }
-      #container5 {
+      #container5,
+      #container3,
+      #container4 {
         width: 400px;
         height: 400px;
         position: absolute;
-        top: 0;
-        left: 1100px;
+        top: 630px;
+        left: 0;
+        transition: opacity 0.5s ease;
       }
-      #container4 {
+      #container14 {
+        /*原container4*/
+        width: 500px;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 1250px;
+      }
+      #container13 {
+        /*原container3*/
         width: 400px;
-        height: 300px;
+        height: 350px;
         position: absolute;
         top: 400px;
-        left: 1100px;
+        left: 1300px;
       }
-      #container3 {
-        width: 400px;
+      #container9 {
+        width: 800px;
+        height: 1000px;
+        position: absolute;
+        top: 0;
+        left: 500px;
+        transition: opacity 0.5s ease;
+      }
+      #container11 {
+        width: 500px;
+        height: 350px;
+        position: absolute;
+        top: 670px;
+        left: 1300px;
+        transition: opacity 0.5s ease;
+      }
+      #container12 {
+        width: 300px;
         height: 300px;
         position: absolute;
-        top: 700px;
-        left: 1100px;
+        top: 650px; /* 距离底部的位置 */
+        left: 900px; /* 距离右侧的位置 */
+        z-index: 1; /* 设置层叠顺序 */
+        transition: opacity 0.5s ease;
+      }
+      #select {
+        z-index: 3;
+        position: absolute;
+        top: 630px;
+        left: 300px;
+      }
+      .hidden {
+        opacity: 0;
+      }
+      .hidden2 {
+        display: none;
+      }
+      body {
+        background-image: url("bkg.png");
+        background-size: cover; /* 图片自适应尺寸并且覆盖整个背景 */
       }
     </style>
+    <script>
+      function toggleDiv() {
+        var select = document.getElementById("select");
+        var divs = document.querySelectorAll(
+          "#container3, #container4, #container5"
+        );
+        for (let i = 0; i < divs.length; i++) {
+          if (select.value === divs[i].id) {
+            divs[i].classList.remove("hidden");
+            const a = setTimeout(() => {
+              console.log(i);
+              divs[i].classList.remove("hidden2");
+            }, 500);
+          } else {
+            divs[i].classList.add("hidden");
+            const b = setTimeout(() => {
+              console.log(i);
+              divs[i].classList.add("hidden2");
+            }, 500);
+          }
+        }
+      }
+    </script>
     <script defer src="echarts.js"></script>
-    <script
-      defer
-      src="./1每天报案数趋势/theFunctionofimage.js"
-      type="module"
-    ></script>
     <script
       defer
       src="./分区域报案数量/pie-borderRadius.js"
@@ -84,11 +130,6 @@
       type="module"
     ></script>
     <!-- <script defer src="./杭州地图/hangzhoumap.js" type="module"></script> -->
-    <script
-      defer
-      src="./不同情况下网络诈骗和电信诈骗数量/bar-stack.js"
-      type="module"
-    ></script>
     <script
       defer
       src="./分大类案件数量/pie-borderRadius.js"
@@ -104,28 +145,28 @@
       src="./各天报警案件趋势/area-simple.js"
       type="module"
     ></script>
-    <script
-      defer
-      src="./派出所案件数量/bar-y-category.js"
-      type="module"
-    ></script>
-    <script defer src="./案件流向/sankey-simple.js" type="module"></script>
-    <script
-      defer
-      src="./各反馈警情大类、小类处理结果/sankey-simple.js"
-      type="module"
-    ></script>
+    <script defer src="./职业图/job.js" type="module"></script>
+    <script defer src="./案件细分图/FraudCase.js" type="module"></script>
+    <script defer src="./echarts.js" type="module"></script>
+    <script defer src="./network/index2.js" type="module"></script>
+    <script defer src="./杭州地图/hangzhoumap.js" type="module"></script>
   </head>
   <body style="height: 100%; margin: 0">
-    <div id="container"></div>
-    <div id="container1"></div>
-    <div id="container2"></div>
-    <div id="container3"></div>
-    <div id="container4"></div>
+    <P>网络案件分类系统</P>
+    <select data-menu id="select" onchange="toggleDiv()">
+      <option value="container3">分大类案件数量</option>
+      <option value="container4">分区域报案数量</option>
+      <option value="container5" selected>分时间段案件数量</option>
+    </select>
+    <div id="container3" class="hidden"></div>
+    <div id="container4" class="hidden"></div>
     <div id="container5"></div>
-    <div id="container6"></div>
     <div id="container7"></div>
     <div id="container8"></div>
-    <div id="container10"></div>
+    <div id="container9"></div>
+    <div id="container11"></div>
+    <div id="container12"></div>
+    <div id="container13"></div>
+    <div id="container14"></div>
   </body>
 </html>

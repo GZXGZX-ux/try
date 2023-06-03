@@ -1,4 +1,4 @@
-import { getData as getData } from "../getthedata.js";
+import { getD山区ata as getData } from "../getthedata.js";
 const createTheimage = function (data, container) {
   var dom = document.getElementById(`${container}`);
   var myChart = echarts.init(dom, null, {
