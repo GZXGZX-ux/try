@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      p{
+      p {
         font-size: 50px;
         font-family: 华文楷体;
         color: white;
@@ -91,34 +91,12 @@
         display: none;
       }
       body {
-        background-image: url("bkg.png");
+        background-image: url('bkg.png');
         background-size: cover; /* 图片自适应尺寸并且覆盖整个背景 */
       }
     </style>
-    <script>
-      function toggleDiv() {
-        var select = document.getElementById("select");
-        var divs = document.querySelectorAll(
-          "#container3, #container4, #container5"
-        );
-        for (let i = 0; i < divs.length; i++) {
-          if (select.value === divs[i].id) {
-            divs[i].classList.remove("hidden");
-            const a = setTimeout(() => {
-              console.log(i);
-              divs[i].classList.remove("hidden2");
-            }, 500);
-          } else {
-            divs[i].classList.add("hidden");
-            const b = setTimeout(() => {
-              console.log(i);
-              divs[i].classList.add("hidden2");
-            }, 500);
-          }
-        }
-      }
-    </script>
     <script defer src="echarts.js"></script>
+    <script defer src="./分时间段案件数量/script.js" type="module"></script>
     <script
       defer
       src="./分区域报案数量/pie-borderRadius.js"
@@ -152,8 +130,8 @@
     <script defer src="./杭州地图/hangzhoumap.js" type="module"></script>
   </head>
   <body style="height: 100%; margin: 0">
-    <P>网络案件分类系统</P>
-    <select data-menu id="select" onchange="toggleDiv()">
+    <p>网络案件分类系统</p>
+    <select data-menu id="select">
       <option value="container3">分大类案件数量</option>
       <option value="container4">分区域报案数量</option>
       <option value="container5" selected>分时间段案件数量</option>
